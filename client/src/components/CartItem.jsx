@@ -61,7 +61,7 @@ const CartItem = ({ cartItem }) => {
           ))}
         </Select>
         <Text fontWeight='bold' >${price}</Text>
-        <CloseButton onClick={() => dispatch(removeCartItem(id))} />
+        <CloseButton mx='20px' onClick={() => dispatch(removeCartItem(id))} />
       </Flex>
     </Flex>
   );
