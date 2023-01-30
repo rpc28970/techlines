@@ -35,7 +35,7 @@ const CartItem = ({ cartItem }) => {
         />
         <Box pt="4">
           <Stack spacing="0.5">
-            <Text fontWeight="medium">{name}</Text>
+            <Text mr={1} fontWeight="medium">{name}</Text>
           </Stack>
         </Box>
       </Stack>

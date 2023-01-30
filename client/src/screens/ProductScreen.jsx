@@ -52,13 +52,22 @@ const ProductScreen = () => {
     }
   };
 
-  const addItem = () => {
-    dispatch(addCartItem(product._id, amount));
-    toast({
-      description: "Item has been added.",
-      status: "success",
-      isClosable: true,
-    });
+  const addItem = (id, amount) => {
+    if (cart.some((cartItem) => cartItem.id === id)) {
+      toast({
+        description:
+          "This item is already in your cart. Go to your cart to change the amount.",
+        status: "error",
+        isClosable: true,
+      });
+    } else {
+      dispatch(addCartItem(id, amount));
+      toast({
+        description: "Item has been added",
+        status: "success",
+        isClosable: true,
+      });
+    }
   };
 
   return (
@@ -176,7 +185,11 @@ const ProductScreen = () => {
                       <SmallAddIcon w="20px" h="25px" />
                     </Button>
                   </Flex>
-                  <Button isDisabled={product.stock === 0}  colorScheme="orange" onClick={() => addItem()}>
+                  <Button
+                    isDisabled={product.stock === 0}
+                    colorScheme="orange"
+                    onClick={() => addItem(id, amount)}
+                  >
                     Add to cart.
                   </Button>
                   <Stack w="270px">
