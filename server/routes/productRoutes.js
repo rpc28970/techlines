@@ -21,4 +21,5 @@ const getProduct = async (req, res) => {
 
 productRoutes.route('/').get(getProducts);
 productRoutes.route('/:id').get(getProduct);
+
 export default productRoutes;
