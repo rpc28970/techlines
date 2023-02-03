@@ -5,6 +5,7 @@ import express from "express";
 //Routes
 import productRoutes from "./routes/productRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
+import orderRoutes from "./routes/orderRoutes.js";
 
 dotenv.config();
 connectToDatabase();
@@ -14,10 +15,9 @@ app.use(express.json());
 
 const port = process.env.PORT || 5000;
 
-app.use('/api/products', productRoutes);
-app.use('/api/users', userRoutes);
-
-
+app.use("/api/products", productRoutes);
+app.use("/api/users", userRoutes);
+app.use("/api/orders", orderRoutes);
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}.`);

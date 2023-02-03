@@ -43,8 +43,10 @@ const ProfileScreen = () => {
         status: "success",
         isClosable: true,
       });
+      
+      dispatch(resetUpdateSuccess());
     }
-  }, [updateSuccess, toast]);
+  }, [updateSuccess, toast, dispatch]);
 
   return userInfo ? (
     <Formik
@@ -68,7 +70,6 @@ const ProfileScreen = () => {
           .oneOf([Yup.ref("password"), null], "Passwords must match."),
       })}
       onSubmit={(values) => {
-        dispatch(resetUpdateSuccess());
         dispatch(
           updateProfile(
             userInfo._id,
