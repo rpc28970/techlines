@@ -46,7 +46,7 @@ const RegistrationScreen = () => {
 
   return (
     <Formik
-      initialValues={{ email: "", password: "", name: "" }}
+      initialValues={{ email: "", password: "", name: "", confirmPassword: "" }}
       validationSchema={Yup.object({
         name: Yup.string().required("A name is required."),
         email: Yup.string()
