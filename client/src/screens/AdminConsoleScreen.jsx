@@ -62,7 +62,7 @@ const AdminConsoleScreen = () => {
       </Stack>
     </Box>
   ) : (
-    <Navigate to="login" replace="true" state={{ from: location }} />
+    <Navigate to="/login" replace="true" state={{ from: location }} />
   );
 };
 
